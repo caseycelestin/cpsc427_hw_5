@@ -1,6 +1,10 @@
 #ifndef __FACTORY_HPP__
 #define __FACTORY_HPP__
 
+#include "yahtzee.hpp"
+#include "ruletypes.hpp"
+#include "rule.hpp";
+
 namespace cs427_527
 {
     // Interface for yahtzee factory

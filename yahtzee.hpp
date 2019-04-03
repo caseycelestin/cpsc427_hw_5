@@ -6,32 +6,22 @@
 #include <iostream>
 
 #include "diceroll.hpp"
+#include "scoresheet.hpp"
+#include "ruletypes.hpp"
+#include "rule.hpp"
 
 using std::vector;
 using std::string;
 using std::ostream;
 
-using cs427_527::DiceRoll;
-
 namespace cs427_527
 {
-
-    class Scoresheet
-    {
-    public:
-	Scoresheet(/*vector<Rule>*/);
-
-	// << operator overload to print scoresheet
-	friend ostream& operator<<(ostream&, const Scoresheet&);
-	// returns unused catagories
-	vector<string> unusedCategories() const;
-    };
 
     class YahtzeeGame
     {
     public:
 	// Constructs a yahtzee game from a set of rules
-	YahtzeeGame(/*vector<Rule>*/);
+	YahtzeeGame(vector<Rule>);
 
 	// Creates a scoresheet for this yahtzee game
 	Scoresheet initialSheet() const;
@@ -43,7 +33,7 @@ namespace cs427_527
 	void scoreRoll(DiceRoll, string, Scoresheet) const;
     private:
 	// Saved list of rules
-	// vector<Rule> rules;
+	vector<Rule> rules;
     };
 }
 #endif
