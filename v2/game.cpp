@@ -25,7 +25,7 @@ using cs427_527::BasicYahtzeeFactory;
 using cs427_527::MysteryYahtzeeFactory;
 using cs427_527::Scoresheet;
 using cs427_527::YahtzeeGame;
-// using cs427_527::YahtzeeState;
+using cs427_527::YahtzeeState;
 using cs427_527::DiceRoll;
 
 void test_scoring(const YahtzeeGame& game);

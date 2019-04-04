@@ -42,7 +42,7 @@ namespace cs427_527
 	vector<string> out;
 	for(auto it = unused.begin(); it < unused.end(); it++)
 	{
-	    pair<bool, string> t;
+	    pair<bool, string> t = *it;
 	    if(t.first)
 	    {
 		out.push_back(t.second);
@@ -71,7 +71,7 @@ namespace cs427_527
     {
 	for(auto it = unused.begin(); it < unused.end(); it++)
 	{
-	    pair<bool, string> t;
+	    pair<bool, string> t = *it;
 	    if(abbrev == t.second)
 	    {
 		(*it).first = false;

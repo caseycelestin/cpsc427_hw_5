@@ -32,10 +32,52 @@ namespace cs427_527
 	virtual int points(DiceRoll) override;
     };
 
+    class Fixed : public PointAmount
+    {
+    public:
+	Fixed(int v);
+	virtual int points(DiceRoll) override;
+    private:
+	int value;
+    };
+
+    class OneSum : public PointAmount
+    {
+    public:
+	OneSum(int n);
+	virtual int points(DiceRoll) override;
+    private:
+	int number;
+    };
+
     class NoCheck : public RuleCheck
     {
     public: 
 	virtual bool applyPoints(DiceRoll) override;
+    };
+
+    class FullHouse : public RuleCheck
+    {
+    public:
+	virtual bool applyPoints(DiceRoll) override;
+    };
+
+    class Straights : public RuleCheck
+    {
+    public:
+	Straights(int s);
+	virtual bool applyPoints(DiceRoll) override;
+    private:
+	int size;
+    };
+
+    class OfAKind : public RuleCheck
+    {
+    public:
+	OfAKind(int n);
+	virtual bool applyPoints(DiceRoll) override;
+    private:
+	int number;
     };
 }
 #endif

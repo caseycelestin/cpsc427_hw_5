@@ -24,20 +24,18 @@ namespace cs427_527
 	ruleList = r;
     }
 
-    Scoresheet YahtzeeGame::initialSheet()
+    Scoresheet YahtzeeGame::initialSheet() const
     {
 	return Scoresheet(ruleList);
     }
     
-    bool YahtzeeGame::isTerminal(Scoresheet sheet)
+    bool YahtzeeGame::isTerminal(Scoresheet sheet) const
     {
 	return (sheet.unusedCategories()).empty();
     }
 
-    void YahtzeeGame::scoreRoll(DiceRoll roll, string cat, Scoresheet sheet)
+    void YahtzeeGame::scoreRoll(DiceRoll roll, string cat, Scoresheet& sheet) const
     {
-	vector<Rule> scoreable;
-
 	for(auto it = ruleList.begin(); it != ruleList.end(); it++)
 	{
 	    Rule test = *it;
@@ -56,7 +54,7 @@ namespace cs427_527
 	}
     }
 
-    void YahtzeeGame::score(Rule rule, DiceRoll roll, Scoresheet sheet)
+    void YahtzeeGame::score(Rule rule, DiceRoll roll, Scoresheet& sheet) const
     {
 	int value = 0;
 

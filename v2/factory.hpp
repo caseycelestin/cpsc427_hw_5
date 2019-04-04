@@ -19,6 +19,12 @@ namespace cs427_527
     public:
 	virtual YahtzeeGame makeGame() const;
     };
+
+    class MysteryYahtzeeFactory : public YahtzeeFactory
+    {
+    public:
+	virtual YahtzeeGame makeGame() const;
+    };
 }
 #endif
 

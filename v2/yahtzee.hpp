@@ -14,6 +14,7 @@ using std::string;
 
 namespace cs427_527
 {
+    class YahtzeeState;
     class Rule;
     class DiceRoll;
     class Scoresheet;
@@ -28,16 +29,16 @@ namespace cs427_527
 
 	// Creates scoresheet
 	// first param is score and full name, second param is unused list
-	Scoresheet initialSheet();
+	Scoresheet initialSheet() const;
 
 	// Cecks for end of game
-	bool isTerminal(Scoresheet);
+	bool isTerminal(const Scoresheet) const;
 
 	// Scores players turn
-	void scoreRoll(DiceRoll, string, Scoresheet);
+	void scoreRoll(DiceRoll, string, Scoresheet&) const;
 
 	// Score against a rule
-	void score(Rule, DiceRoll, Scoresheet);
+	void score(Rule, DiceRoll, Scoresheet&) const;
 
     private:
 	// List of rules
