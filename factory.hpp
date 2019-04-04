@@ -3,7 +3,7 @@
 
 #include "yahtzee.hpp"
 #include "ruletypes.hpp"
-#include "rule.hpp";
+#include "rule.hpp"
 
 namespace cs427_527
 {
@@ -12,8 +12,8 @@ namespace cs427_527
     class YahtzeeFactory
     {
     public:
-	virtual ~YahtzeeFactory();
-	virtual YahtzeeGame makeGame() = 0;
+	virtual ~YahtzeeFactory() = default;
+	virtual YahtzeeGame makeGame() const = 0;
     
     };
 
@@ -21,14 +21,14 @@ namespace cs427_527
     class BasicYahtzeeFactory : public YahtzeeFactory
     {
     public:
-	virtual YahtzeeGame makeGame();	
+	virtual YahtzeeGame makeGame() const;	
     };
     
     // Creates basic yahtzee game
     class MysteryYahtzeeFactory : public YahtzeeFactory
     {
     public:
-	virtual YahtzeeGame makeGame();	
+	virtual YahtzeeGame makeGame() const;	
     };
 
 }

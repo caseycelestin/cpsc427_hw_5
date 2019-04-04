@@ -20,6 +20,8 @@ namespace cs427_527
     class YahtzeeGame
     {
     public:
+	// Basic constructor for testing
+	YahtzeeGame();
 	// Constructs a yahtzee game from a set of rules
 	YahtzeeGame(vector<Rule>);
 

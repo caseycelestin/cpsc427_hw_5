@@ -16,20 +16,41 @@ namespace cs427_527
     class Rule
     {
     public:
-	Rule();
+	Rule(string, string, shared_ptr<PointAmount>, shared_ptr<RuleCheck>, bool);
 	
-	// Returns the amount of points rewarded for this rule
+	// Returns the amount of points rewarded for this rule:
 	int points(DiceRoll, string, Scoresheet);
 
 	// Checks to see if points can be applied
 	bool applyPoints(DiceRoll, string, Scoresheet);
 
+	// Returns if it is playable or not
+	bool isPlayable() const;
+
+	// Return name
+	string getName() const;
+
+	// Returns abbrev
+	string getAbbrev() const;
+
     private:
+	// Name of category
+	string name;
+
+	// Abbreviation of name
+	string abbrev;
+
 	// Pointer to appropriate points class
 	shared_ptr<PointAmount> pointAmount;
 
 	// Pointer to appropriate checker class
 	shared_ptr<RuleCheck> ruleCheck;	
+
+	// Playable or not (hand or bonus)
+	bool playable;
     };
 }
+
+//#include "rule.cpp"
+
 #endif
