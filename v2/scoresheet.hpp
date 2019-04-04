@@ -20,7 +20,7 @@ namespace cs427_527
     public:
 	Scoresheet();
 
-	Scoresheet(vector<Rule>);
+	Scoresheet(const vector<Rule>);
 
 	vector<string> unusedCategories();
 
@@ -32,8 +32,8 @@ namespace cs427_527
 
     private:
 	vector<pair<int, string>> score;
-
-	vector<string> unused;
+	
+	vector<pair<bool, string>> unused;
     };
     
     ostream& operator<<(ostream& os, const Scoresheet& sheet);

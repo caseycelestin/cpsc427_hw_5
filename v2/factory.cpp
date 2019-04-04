@@ -20,7 +20,7 @@ namespace cs427_527
 	
 	vector<Rule> ruleList;
 
-	Rule test(string("long"), string("short"), make_shared<AllSum>(), make_shared<NoCheck>(), false);
+	Rule test(string("test"), string("tst"), make_shared<AllSum>(), make_shared<NoCheck>(), true);
 	
 	ruleList.push_back(test);
 

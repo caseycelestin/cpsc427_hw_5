@@ -14,10 +14,10 @@ namespace cs427_527
     {
     }
     
-    Scoresheet::Scoresheet(vector<Rule> ruleList)
+    Scoresheet::Scoresheet(const vector<Rule> ruleList)
     {
 	vector<pair<int,string>> s;
-	vector<string> u;
+	vector<pair<bool, string>> u;
 
 	for (auto it = ruleList.begin(); it != ruleList.end(); it++)
 	{
@@ -25,8 +25,8 @@ namespace cs427_527
 
 	    if(add.isPlayable())
 	    {
-		u.push_back(add.getAbbrev());
 		s.push_back(make_pair(-1, add.getName()));
+		u.push_back(make_pair(true, add.getAbbrev()));
 	    }
 	    else
 	    {
@@ -39,21 +39,49 @@ namespace cs427_527
     
     vector<string> Scoresheet::unusedCategories()
     {
-	return unused;
+	vector<string> out;
+	for(auto it = unused.begin(); it < unused.end(); it++)
+	{
+	    pair<bool, string> t;
+	    if(t.first)
+	    {
+		out.push_back(t.second);
+	    }
+	}
+	return out;
     }
 
     void Scoresheet::update(int value, string name, string abbrev)
     {
+	for(auto it = score.begin(); it < score.end(); it++)
+	{
+	    pair<int, string> line = *it;
+
+	    if(name == line.second)
+	    {
+		(*it).first = value;
+	    }
+	    
+	    used(abbrev);
+	}
 
     }
 
     void Scoresheet::used(string abbrev)
     {
+	for(auto it = unused.begin(); it < unused.end(); it++)
+	{
+	    pair<bool, string> t;
+	    if(abbrev == t.second)
+	    {
+		(*it).first = false;
+	    }
+	}
     }
 
     void Scoresheet::output(ostream& os) const
     {
-	for(auto it = score.begin(); it < score.end(); it++)
+	for(auto it = score.begin(); it != score.end(); it++)
 	{
 	    pair<int, string> line = *it;
 

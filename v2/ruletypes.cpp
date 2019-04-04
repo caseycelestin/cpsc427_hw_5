@@ -15,7 +15,7 @@ namespace cs427_527
     
     int AllSum::points(DiceRoll roll)
     {
-	return 10;
+	return roll.total();
     }
 
     bool NoCheck::applyPoints(DiceRoll roll)

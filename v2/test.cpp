@@ -6,18 +6,24 @@
 #include <string>
 #include <memory>
 #include <iostream>
+#include <iterator>
+#include <algorithm>
 
 using std::string;
 using std::make_shared;
 using std::shared_ptr;
 using std::cout;
 using std::endl;
+using std::ostream_iterator;
+using std::copy;
+using std::cin;
 
 using cs427_527::Rule;
 using cs427_527::YahtzeeGame;
 using cs427_527::BasicYahtzeeFactory;
 using cs427_527::YahtzeeFactory;
 using cs427_527::Scoresheet;
+using cs427_527::DiceRoll;
 
 int main(int argc, char **argv)
 {
@@ -29,6 +35,22 @@ int main(int argc, char **argv)
 
     Scoresheet sheet = game.initialSheet();
 
-    cout << sheet; 
+    DiceRoll roll;
+
+
+    cout << sheet << roll << endl; 
+    vector<string> options = sheet.unusedCategories();
+
+    copy(options.begin(), options.end(), ostream_iterator<string>(cout, " "));
+    cout << endl;
+
+    string cat;
+
+    getline(cin,cat);
+
+    game.scoreRoll(roll, cat, sheet);
+
+    cout << sheet;
+
     
 }
