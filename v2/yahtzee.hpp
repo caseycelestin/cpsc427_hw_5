@@ -1,35 +1,21 @@
 #ifndef __YAHZTEE_HPP__
 #define __YAHTZEE_HPP__
 
-#include "diceroll.hpp"
-#include "rules.hpp"
-
 #include <vector>
 #include <utility>
 #include <string>
 
+#include "rule.hpp"
+
 using std::vector;
 using std::pair;
 using std::string;
+
 namespace cs427_527
 {
-    class Scoresheet
-    {
-    public:
-	Scoresheet();
-    };
-   /* 
-    class Scoresheet
-    {
-    public:
-	Scoresheet(vector<pair<int, string>>, vector<string>);
-
-	vector<strings> unusedCategories();
-    private:
-	vector<pair<int, string>> score;
-
-	vector<string> unused;
-    }*/
+    class Rule;
+    class DiceRoll;
+    class Scoresheet;
 
     class YahtzeeGame
     {

@@ -1,18 +1,11 @@
-#include "rules.hpp"
+#include "rule.hpp"
 
 #include "diceroll.hpp"
 #include "scoresheet.hpp"
+#include "rules.hpp"
 
 namespace cs427_527
 {
-    PointAmount::~PointAmount()
-    {
-    }
-
-    RuleCheck::~RuleCheck()
-    {
-    }
-/*
     Rule::Rule()
     {
     }
@@ -35,17 +28,7 @@ namespace cs427_527
     {
 	return applyRule->applyPoints(roll, cat, sheet);
     }
-*/
-    int AllSum::points(DiceRoll roll, string cat, Scoresheet sheet)
-    {
-	return 10;
-    }
 
-    bool NoCheck::applyPoints(DiceRoll roll, string cat, Scoresheet sheet)
-    {
-	return true;
-    }
-/*
     string Rule::getName()
     {
 	return name;
@@ -60,5 +43,4 @@ namespace cs427_527
     {
 	return playable;
     }
-    */
 }

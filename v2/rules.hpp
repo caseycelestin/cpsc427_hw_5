@@ -1,10 +1,9 @@
 #ifndef __RULES_HPP__
 #define __RULES_HPP__
 
-#include "diceroll.hpp"
-
 #include <string>
 #include <memory>
+
 
 using std::string;
 using std::shared_ptr;
@@ -12,6 +11,7 @@ using std::shared_ptr;
 namespace cs427_527
 {
     class Scoresheet;
+    class DiceRoll;
 
     class PointAmount
     {
@@ -26,13 +26,17 @@ namespace cs427_527
 	virtual ~RuleCheck();
 	virtual bool applyPoints(DiceRoll, string, Scoresheet) = 0;
     };
-
+/*
     class Rule
     {
     public:
+	Rule();
 	Rule(string, string, shared_ptr<PointAmount>, shared_ptr<RuleCheck>, bool);
 	int points(DiceRoll, string, Scoresheet);
 	bool applyPoints(DiceRoll, string, Scoresheet);
+	string getName();
+	string getAbbrev();
+	bool isPlayable();
     private:
 	string name;
 	string abbrev;
@@ -40,7 +44,7 @@ namespace cs427_527
 	shared_ptr<RuleCheck> applyRule;
 	bool playable;
     };
-
+*/
     class AllSum : public PointAmount
     {
     public:

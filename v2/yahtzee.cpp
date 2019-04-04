@@ -1,5 +1,9 @@
 #include "yahtzee.hpp"
 
+#include "diceroll.hpp"
+#include "rule.hpp"
+#include "scoresheet.hpp"
+
 #include <vector>
 #include <utility>
 #include <string>
@@ -12,24 +16,9 @@ using std::string;
 
 namespace cs427_527
 {
-    Scoresheet::Scoresheet()
-    {
-    }
-    /*
-    Scoresheet::Scoresheet(vector<pair<int, string>> s, vector<string> u)
-    {
-	score = s;
-	unused = u;
-    }
     
-    vector<string> Scoresheet::unusedCategories()
-    {
-	return unused;
-    }
-    */
     YahtzeeGame::YahtzeeGame()
-    {
-	
+    {	
     }
 	
     YahtzeeGame::YahtzeeGame(vector<Rule> r)
@@ -40,16 +29,17 @@ namespace cs427_527
 
     Scoresheet YahtzeeGame::initialSheet()
     {
-	return Scoresheet();
+	return Scoresheet(ruleList);
     }
     
-    bool YahtzeeGame::isTerminal(Scoresheet)
+    bool YahtzeeGame::isTerminal(Scoresheet sheet)
     {
-	return false;
+	return (sheet.unusedCategories()).empty();
     }
 
     void YahtzeeGame::scoreRoll(DiceRoll, string, Scoresheet)
     {
+	
     }
 
 }

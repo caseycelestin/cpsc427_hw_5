@@ -1,6 +1,7 @@
 #include "factory.hpp"
 
 #include "yahtzee.hpp"
+#include "rule.hpp"
 #include "rules.hpp"
 
 #include <string>
