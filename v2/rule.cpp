@@ -2,7 +2,7 @@
 
 #include "diceroll.hpp"
 #include "scoresheet.hpp"
-#include "rules.hpp"
+#include "ruletypes.hpp"
 
 namespace cs427_527
 {
@@ -19,14 +19,14 @@ namespace cs427_527
 	playable = play;
     }
 
-    int Rule::points(DiceRoll roll, string cat, Scoresheet sheet)
+    int Rule::points(DiceRoll roll)
     {
-	return pointRule->points(roll, cat, sheet);
+	return pointRule->points(roll);
     }
 
-    bool Rule::applyPoints(DiceRoll roll, string cat, Scoresheet sheet)
+    bool Rule::applyPoints(DiceRoll roll)
     {
-	return applyRule->applyPoints(roll, cat, sheet);
+	return applyRule->applyPoints(roll);
     }
 
     string Rule::getName()

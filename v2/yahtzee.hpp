@@ -6,6 +6,7 @@
 #include <string>
 
 #include "rule.hpp"
+#include "scoresheet.hpp"
 
 using std::vector;
 using std::pair;
@@ -34,6 +35,9 @@ namespace cs427_527
 
 	// Scores players turn
 	void scoreRoll(DiceRoll, string, Scoresheet);
+
+	// Score against a rule
+	void score(Rule, DiceRoll, Scoresheet);
 
     private:
 	// List of rules

@@ -4,10 +4,12 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <iostream>
 
 using std::vector;
 using std::string;
 using std::pair;
+using std::ostream;
 
 namespace cs427_527
 {
@@ -22,12 +24,19 @@ namespace cs427_527
 
 	vector<string> unusedCategories();
 
+	void update(int, string, string);
+
+	void used(string);
+
+	void output(ostream& os) const;
+
     private:
 	vector<pair<int, string>> score;
 
 	vector<string> unused;
     };
-
+    
+    ostream& operator<<(ostream& os, const Scoresheet& sheet);
 }
 
 #endif

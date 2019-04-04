@@ -2,7 +2,7 @@
 
 #include "yahtzee.hpp"
 #include "rule.hpp"
-#include "rules.hpp"
+#include "ruletypes.hpp"
 
 #include <string>
 #include <memory>
@@ -20,7 +20,7 @@ namespace cs427_527
 	
 	vector<Rule> ruleList;
 
-	Rule test(string("long"), string("short"), make_shared<AllSum>(), make_shared<NoCheck>(), true);
+	Rule test(string("long"), string("short"), make_shared<AllSum>(), make_shared<NoCheck>(), false);
 	
 	ruleList.push_back(test);
 

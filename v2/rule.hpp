@@ -18,12 +18,25 @@ namespace cs427_527
     class Rule
     {
     public:
+	// Empty Initializer
 	Rule();
+
+	// Full Initializer
 	Rule(string, string, shared_ptr<PointAmount>, shared_ptr<RuleCheck>, bool);
-	int points(DiceRoll, string, Scoresheet);
-	bool applyPoints(DiceRoll, string, Scoresheet);
+
+	// Returns points awarded for rule
+	int points(DiceRoll);
+
+	// Returns if points are applied
+	bool applyPoints(DiceRoll);
+
+	// Returns name
 	string getName();
+
+	// Returns abbreviation
 	string getAbbrev();
+
+	// Returns rule type
 	bool isPlayable();
     private:
 	string name;

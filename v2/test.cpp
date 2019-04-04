@@ -1,6 +1,7 @@
 
 #include "yahtzee.hpp"
 #include "factory.hpp"
+#include "diceroll.hpp"
 
 #include <string>
 #include <memory>
@@ -16,6 +17,7 @@ using cs427_527::Rule;
 using cs427_527::YahtzeeGame;
 using cs427_527::BasicYahtzeeFactory;
 using cs427_527::YahtzeeFactory;
+using cs427_527::Scoresheet;
 
 int main(int argc, char **argv)
 {
@@ -25,6 +27,8 @@ int main(int argc, char **argv)
 
     YahtzeeGame game = factory->makeGame();
 
-    cout << "yay" << endl;
+    Scoresheet sheet = game.initialSheet();
+
+    cout << sheet; 
     
 }

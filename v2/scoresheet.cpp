@@ -2,7 +2,11 @@
 
 #include "rule.hpp"
 
+#include <iomanip>
+
 using std::make_pair;
+using std::setw;
+using std::endl;
 
 namespace cs427_527
 {
@@ -22,9 +26,12 @@ namespace cs427_527
 	    if(add.isPlayable())
 	    {
 		u.push_back(add.getAbbrev());
+		s.push_back(make_pair(-1, add.getName()));
 	    }
-
-	    s.push_back(make_pair(-1, add.getName()));
+	    else
+	    {
+		s.push_back(make_pair(0, add.getName()));
+	    }
 	}
 	score = s;
 	unused = u;
@@ -33,5 +40,42 @@ namespace cs427_527
     vector<string> Scoresheet::unusedCategories()
     {
 	return unused;
+    }
+
+    void Scoresheet::update(int value, string name, string abbrev)
+    {
+
+    }
+
+    void Scoresheet::used(string abbrev)
+    {
+    }
+
+    void Scoresheet::output(ostream& os) const
+    {
+	for(auto it = score.begin(); it < score.end(); it++)
+	{
+	    pair<int, string> line = *it;
+
+	    os << setw(5);
+
+	    if(line.first != -1)
+	    {
+		os << line.first;
+	    }
+	    else
+	    {
+		os << "";
+	    }
+
+	    os << " " << line.second << endl;
+	}
+    }
+
+    ostream& operator<<(ostream& os, const Scoresheet& sheet)
+    {
+	sheet.output(os);
+
+	return os;
     }
 }

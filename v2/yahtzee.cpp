@@ -12,8 +12,6 @@ using std::vector;
 using std::pair;
 using std::string;
 
-#include <iostream>
-
 namespace cs427_527
 {
     
@@ -23,7 +21,6 @@ namespace cs427_527
 	
     YahtzeeGame::YahtzeeGame(vector<Rule> r)
     {
-	std::cout << "woop" << std::endl;
 	ruleList = r;
     }
 
@@ -37,9 +34,38 @@ namespace cs427_527
 	return (sheet.unusedCategories()).empty();
     }
 
-    void YahtzeeGame::scoreRoll(DiceRoll, string, Scoresheet)
+    void YahtzeeGame::scoreRoll(DiceRoll roll, string cat, Scoresheet sheet)
     {
+	vector<Rule> scoreable;
+
+	for(auto it = ruleList.begin(); it != ruleList.end(); it++)
+	{
+	    Rule test = *it;
+
+	    if(!(test.isPlayable()))
+	    {
+		score(test, roll, sheet);
+	    }
+	    else 
+	    {
+		if(test.getAbbrev() == cat)
+		{
+		    score(test, roll, sheet);
+		}
+	    }
+	}
+    }
+
+    void YahtzeeGame::score(Rule rule, DiceRoll roll, Scoresheet sheet)
+    {
+	int value = 0;
+
+	if(rule.applyPoints(roll))
+	{
+	    value = rule.points(roll);
+	}
 	
+	sheet.update(value, rule.getName(), rule.getAbbrev());
     }
 
 }
