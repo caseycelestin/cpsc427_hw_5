@@ -19,12 +19,12 @@ namespace cs427_527
 	playable = play;
     }
 
-    int Rule::points(DiceRoll roll)
+    int Rule::points(DiceRoll& roll, Scoresheet& sheet)
     {
-	return pointRule->points(roll);
+	return pointRule->points(roll, sheet);
     }
 
-    bool Rule::applyPoints(DiceRoll roll)
+    bool Rule::applyPoints(DiceRoll& roll)
     {
 	return applyRule->applyPoints(roll);
     }

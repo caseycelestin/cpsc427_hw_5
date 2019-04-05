@@ -85,7 +85,7 @@ namespace cs427_527
 	{
 	    pair<int, string> line = *it;
 
-	    os << setw(5);
+	    os << setw(4);
 
 	    if(line.first != -1)
 	    {
@@ -98,6 +98,17 @@ namespace cs427_527
 
 	    os << " " << line.second << endl;
 	}
+    }
+
+    vector<int> Scoresheet::getScores() const
+    {
+	vector<int> out;
+
+	for(auto it = score.begin(); it < score.end(); it++)
+	{
+	    out.push_back((*it).first);
+	}
+	return out;
     }
 
     ostream& operator<<(ostream& os, const Scoresheet& sheet)

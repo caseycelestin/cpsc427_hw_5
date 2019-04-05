@@ -25,10 +25,10 @@ namespace cs427_527
 	Rule(string, string, shared_ptr<PointAmount>, shared_ptr<RuleCheck>, bool);
 
 	// Returns points awarded for rule
-	int points(DiceRoll);
+	int points(DiceRoll&, Scoresheet&);
 
 	// Returns if points are applied
-	bool applyPoints(DiceRoll);
+	bool applyPoints(DiceRoll&);
 
 	// Returns name
 	string getName();

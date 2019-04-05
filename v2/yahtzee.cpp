@@ -29,12 +29,12 @@ namespace cs427_527
 	return Scoresheet(ruleList);
     }
     
-    bool YahtzeeGame::isTerminal(Scoresheet sheet) const
+    bool YahtzeeGame::isTerminal(Scoresheet& sheet) const
     {
 	return (sheet.unusedCategories()).empty();
     }
 
-    void YahtzeeGame::scoreRoll(DiceRoll roll, string cat, Scoresheet& sheet) const
+    void YahtzeeGame::scoreRoll(DiceRoll& roll, string cat, Scoresheet& sheet) const
     {
 	for(auto it = ruleList.begin(); it != ruleList.end(); it++)
 	{
@@ -54,13 +54,13 @@ namespace cs427_527
 	}
     }
 
-    void YahtzeeGame::score(Rule rule, DiceRoll roll, Scoresheet& sheet) const
+    void YahtzeeGame::score(Rule& rule, DiceRoll& roll, Scoresheet& sheet) const
     {
 	int value = 0;
 
 	if(rule.applyPoints(roll))
 	{
-	    value = rule.points(roll);
+	    value = rule.points(roll, sheet);
 	}
 	
 	sheet.update(value, rule.getName(), rule.getAbbrev());

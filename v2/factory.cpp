@@ -32,6 +32,8 @@ namespace cs427_527
 
 	ruleList.push_back(Rule(string("Sixes"), string("6"), make_shared<OneSum>(6), make_shared<NoCheck>(), true));
 
+	ruleList.push_back(Rule(string("UPPER BONUS"), string("UB"), make_shared<Bonus>(63, 35), make_shared<NoCheck>(), false));
+
 	ruleList.push_back(Rule(string("Three of a Kind"), string("3K"), make_shared<AllSum>(), make_shared<OfAKind>(3), true));
 
 	ruleList.push_back(Rule(string("Four of a Kind"), string("4K"), make_shared<AllSum>(), make_shared<OfAKind>(4), true));
@@ -41,7 +43,12 @@ namespace cs427_527
 	ruleList.push_back(Rule(string("Small Straight"), string("SS"), make_shared<Fixed>(30), make_shared<Straights>(4), true));
 
 	ruleList.push_back(Rule(string("Large Straight"), string("LS"), make_shared<Fixed>(40), make_shared<Straights>(5), true));
+
+	ruleList.push_back(Rule(string("Chance"), string("C"), make_shared<AllSum>(), make_shared<NoCheck>(), true));
 	
+	ruleList.push_back(Rule(string("Yahtzee"), string("Y"), make_shared<Fixed>(50), make_shared<OfAKind>(5), true));
+
+	ruleList.push_back(Rule(string("GRAND TOTAL"), string("GT"), make_shared<Total>(), make_shared<NoCheck>(), false));
 
 	
 

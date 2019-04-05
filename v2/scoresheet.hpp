@@ -30,6 +30,8 @@ namespace cs427_527
 
 	void output(ostream& os) const;
 
+	vector<int> getScores() const;
+
     private:
 	vector<pair<int, string>> score;
 	

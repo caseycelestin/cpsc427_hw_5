@@ -13,6 +13,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+using std::vector;
 using std::find;
 using std::copy;
 using std::ostream_iterator;
@@ -25,8 +26,11 @@ using cs427_527::BasicYahtzeeFactory;
 using cs427_527::MysteryYahtzeeFactory;
 using cs427_527::Scoresheet;
 using cs427_527::YahtzeeGame;
-using cs427_527::YahtzeeState;
 using cs427_527::DiceRoll;
+
+#ifdef CPSC527
+using cs427_527::YahtzeeState;
+#endif
 
 void test_scoring(const YahtzeeGame& game);
 
@@ -170,14 +174,6 @@ int main(int argc, char **argv)
 
   // game over, output final scoresheet and total
   cout << sheet << endl;
-
-
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
-
-
-
 #else
   YahtzeeState state = game.initialState();
   if (!randomize)
@@ -229,7 +225,8 @@ int main(int argc, char **argv)
 		    {
 		      string dice;
 		      getline(cin, dice);
-		      skdjfhsdjfsss
+		      
+		      if (cin)
 			{
 			  try
 			    {

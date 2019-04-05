@@ -31,14 +31,14 @@ namespace cs427_527
 	// first param is score and full name, second param is unused list
 	Scoresheet initialSheet() const;
 
-	// Cecks for end of game
-	bool isTerminal(const Scoresheet) const;
+	// Checks for end of game
+	bool isTerminal(Scoresheet&) const;
 
 	// Scores players turn
-	void scoreRoll(DiceRoll, string, Scoresheet&) const;
+	void scoreRoll(DiceRoll&, string, Scoresheet&) const;
 
 	// Score against a rule
-	void score(Rule, DiceRoll, Scoresheet&) const;
+	void score(Rule&, DiceRoll&, Scoresheet&) const;
 
     private:
 	// List of rules

@@ -16,7 +16,7 @@ namespace cs427_527
     {
     public:
 	virtual ~PointAmount();
-	virtual int points(DiceRoll) = 0;
+	virtual int points(DiceRoll, Scoresheet) = 0;
     };
 
     class RuleCheck
@@ -29,14 +29,14 @@ namespace cs427_527
     class AllSum : public PointAmount
     {
     public:
-	virtual int points(DiceRoll) override;
+	virtual int points(DiceRoll, Scoresheet) override;
     };
 
     class Fixed : public PointAmount
     {
     public:
 	Fixed(int v);
-	virtual int points(DiceRoll) override;
+	virtual int points(DiceRoll, Scoresheet) override;
     private:
 	int value;
     };
@@ -45,9 +45,26 @@ namespace cs427_527
     {
     public:
 	OneSum(int n);
-	virtual int points(DiceRoll) override;
+	virtual int points(DiceRoll, Scoresheet) override;
     private:
 	int number;
+    };
+
+    class Bonus : public PointAmount
+    {
+    public:
+	Bonus(int t, int b);
+	virtual int points(DiceRoll, Scoresheet) override;
+    private:
+	int threshold;
+	int bonus;
+
+    };		
+
+    class Total : public PointAmount
+    {
+    public:
+	virtual int points(DiceRoll, Scoresheet) override;
     };
 
     class NoCheck : public RuleCheck
