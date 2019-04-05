@@ -1,0 +1,19 @@
+ESTIMATE of time to complete assignment: 12 hours
+
+        Time     Time
+  Date  Started  Spent  Work Completed
+  ----  -------  -----  --------------
+  4/2   19:30    1:30   Set up hpp files and made sure all used functions were declared
+  4/3   10:30    2:00   Refined file layout for project and skeched header file ruletypes
+  4/3   13:30    7:30   Struggled with linking all of my files, decided to start from skratch and build the project back up
+  4/4   9:20     1:30   Finally figured out linking issue and madularized parts of my code for better organization
+  4/4   11:00    1:30   Finialized all files for projects and implemented rudimentary scoring and print out of scoresheey
+  4/4   12:30    1:30   Finished implementing scoring but left with unused categories not storing properly
+  4/4   3:20     2:00   Did away with test main and integrated with game.cpp, began implmenting BasicYahtzeeGame rules
+  4/4   5:30     4:30   Finished implementing rules, then spent time debugging, spent two hours failing public test to realize my scoresheet margin was one off
+                 ----
+                 22:00  TOTAL time spent
+
+I discussed my solution with: Tomaso Mukai
+
+I have seemed to forgotton how to link files together as I spent a majoity of the time trying to figure out how hpp and cpp files work together. I wanted to keep this project organized so this was a necessary learning step. Overalll though it was the implementation not the concepts that I struggled on.
